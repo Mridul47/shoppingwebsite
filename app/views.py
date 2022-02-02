@@ -41,8 +41,17 @@ def change_password(request):
  return render(request, 'app/changepassword.html')
 
 
-def home_appliance(request):
- return render(request, 'app/homeappliance.html')
+def home_appliance(request , data=None):
+    if data==None:
+        homeappliances = Product.objects.filter(category='H')
+    elif data =='Prestige' or data=='Taison':
+        homeappliances=Product.objects.filter(category='H').filter(brand=data)
+    elif data== 'below':
+        homeappliances=Product.objects.filter(category='H').filter(discounted_price__lt=10000)
+    elif data== 'above':
+        homeappliances=Product.objects.filter(category='H').filter(discounted_price__lt=10000)
+
+    return render(request, 'app/homeappliance.html', {'homeappliances':homeappliances})
 
 def login(request):
  return render(request, 'app/login.html')

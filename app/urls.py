@@ -14,6 +14,7 @@ urlpatterns = [
     path('orders/', views.orders, name='orders'),
     path('changepassword/', views.change_password, name='changepassword'),
     path('home-appliance/', views.home_appliance, name='home-appliance'),
+    path('home-appliance/<slug:data>', views.home_appliance, name='home-appliancedata'),
     path('login/', views.login, name='login'),
     path('registration/', views.customerregistration, name='customerregistration'),
     path('checkout/', views.checkout, name='checkout'),
