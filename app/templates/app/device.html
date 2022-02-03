@@ -1,21 +1,21 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Home Appliance{% endblock title %}
+{% block title %}Device{% endblock title %}
 {% block main-content %}
 <div class="container my-5">
  <div class="row">
   <div class="col-sm-3">
       <div class="list-group">
-        <a href="{% url 'home-appliance' %}" class="list-group-item list-group-item-action" aria-current="true">All Home Appliance</a> 
-        <a href="{% url 'home-appliancedata' 'Prestige' %}" class="list-group-item list-group-item-action" aria-current="true">Prestige</a>
-        <a href="{% url 'home-appliancedata' 'Taison' %}" class="list-group-item list-group-item-action" aria-current="true">Taison</a>
-        <a href="{% url 'home-appliancedata' 'below' %}" class="list-group-item list-group-item-action" aria-current="true">Below 10000</a>
-        <a href="{% url 'home-appliancedata' 'above' %}" class="list-group-item list-group-item-action" aria-current="true">Above 10000</a>
+        <a href="{% url 'device' %}" class="list-group-item list-group-item-action" aria-current="true">All Device</a> 
+        <a href="{% url 'devicedata' 'Redmi' %}" class="list-group-item list-group-item-action" aria-current="true">Redmi</a>
+        <a href="{% url 'devicedata' 'Asus' %}" class="list-group-item list-group-item-action" aria-current="true">Asus</a>
+        <a href="{% url 'devicedata' 'below' %}" class="list-group-item list-group-item-action" aria-current="true">Below 10000</a>
+        <a href="{% url 'devicedata' 'above' %}" class="list-group-item list-group-item-action" aria-current="true">Above 10000</a>
       </div>
     </div>
     <div class="col-sm-8">
         <div class="row">
-            {% for product in homeappliances %}
+            {% for product in devices %}
             <div class="col-sm-4" text-center mb-4>
           <a href="{% url 'product-detail' product.id %}" class="btn">
               <div class="item"> 

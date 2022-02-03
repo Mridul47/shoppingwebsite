@@ -49,9 +49,51 @@ def home_appliance(request , data=None):
     elif data== 'below':
         homeappliances=Product.objects.filter(category='H').filter(discounted_price__lt=10000)
     elif data== 'above':
-        homeappliances=Product.objects.filter(category='H').filter(discounted_price__lt=10000)
+        homeappliances=Product.objects.filter(category='H').filter(discounted_price__gt=10000)
 
     return render(request, 'app/homeappliance.html', {'homeappliances':homeappliances})
+
+def device(request , data=None):
+    if data==None:
+        devices = Product.objects.filter(category='D')
+    elif data =='Redmi' or data=='Asus':
+        devices=Product.objects.filter(category='D').filter(brand=data)
+    elif data== 'below':
+        devices=Product.objects.filter(category='D').filter(discounted_price__lt=10000)
+    elif data== 'above':
+        devices=Product.objects.filter(category='D').filter(discounted_price__gt=10000)
+
+    return render(request, 'app/device.html', {'devices':devices})
+
+def jeans(request , data=None):
+    if data==None:
+        jeanss = Product.objects.filter(category='J')
+    elif data =='zara' or data=='Tara':
+        jeanss=Product.objects.filter(category='J').filter(brand=data)
+    elif data== 'below':
+        jeanss=Product.objects.filter(category='J').filter(discounted_price__lt=10000)
+    elif data== 'above':
+        jeanss=Product.objects.filter(category='J').filter(discounted_price__gt=10000)
+
+    return render(request, 'app/jeans.html', {'jeanss':jeanss})
+
+
+def cotton(request , data=None):
+    if data==None:
+        cottons = Product.objects.filter(category='C')
+    elif data =='Cr' or data=='Habibi':
+        cottons=Product.objects.filter(category='C').filter(brand=data)
+    elif data== 'below':
+        cottons=Product.objects.filter(category='C').filter(discounted_price__lt=10000)
+    elif data== 'above':
+        cottons=Product.objects.filter(category='C').filter(discounted_price__gt=10000)
+
+    return render(request, 'app/cotton.html', {'cottons':cottons})
+
+
+
+
+
 
 def login(request):
  return render(request, 'app/login.html')

@@ -15,6 +15,18 @@ urlpatterns = [
     path('changepassword/', views.change_password, name='changepassword'),
     path('home-appliance/', views.home_appliance, name='home-appliance'),
     path('home-appliance/<slug:data>', views.home_appliance, name='home-appliancedata'),
+
+    path('device/', views.device, name='device'),
+    path('device/<slug:data>', views.device, name='devicedata'),
+
+    path('jeans/', views.jeans, name='jeans'),
+    path('jeans/<slug:data>', views.jeans, name='jeansdata'),
+
+    path('cotton/', views.cotton, name='cotton'),
+    path('cotton/<slug:data>', views.cotton, name='cottondata'),
+
+    
+    
     path('login/', views.login, name='login'),
     path('registration/', views.customerregistration, name='customerregistration'),
     path('checkout/', views.checkout, name='checkout'),
