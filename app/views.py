@@ -92,16 +92,6 @@ def cotton(request , data=None):
     return render(request, 'app/cotton.html', {'cottons':cottons})
 
 
-
-
-
-
-def login(request):
- return render(request, 'app/login.html')
-
-# def customerregistration(request):
-#  return render(request, 'app/customerregistration.html')
-
 class CustomerRegistrationView(View):
     def get(self,request):
         form = CustomerRegistrationForm()
