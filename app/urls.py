@@ -3,7 +3,7 @@ from app import views
 from django.conf import settings
 from django.conf.urls.static import static 
 from django.contrib.auth import views as auth_views
-from .forms import LoginForm
+from .forms import LoginForm, MyPasswordChangeForm
 
 
 urlpatterns = [
@@ -16,7 +16,7 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('address/', views.address, name='address'),
     path('orders/', views.orders, name='orders'),
-    path('changepassword/', views.change_password, name='changepassword'),
+    
     path('home-appliance/', views.home_appliance, name='home-appliance'),
     path('home-appliance/<slug:data>', views.home_appliance, name='home-appliancedata'),
 
@@ -32,6 +32,10 @@ urlpatterns = [
         
     path('accounts/login/', auth_views.LoginView.as_view(template_name='app/login.html',authentication_form=LoginForm),name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='login'),name='logout'),
+
+    path('passwordchange/',auth_views.PasswordChangeView.as_view(template_name='app/passwordchange.html',form_class=MyPasswordChangeForm,success_url='/passwordchangedone/'),name='passwordchange'),
+
+    path('passwordchangedone/', auth_views.PasswordChangeDoneView.as_view(template_name='app/passwordchangedone.html'),name='passwordchangedone'),
 
     path('checkout/', views.checkout, name='checkout'),
 
