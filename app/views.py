@@ -117,8 +117,7 @@ def remove_cart(request):
 
 
 
-def buy_now(request):
- return render(request, 'app/buynow.html')
+
 
 @login_required
 def address(request):
