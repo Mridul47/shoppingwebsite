@@ -35,6 +35,9 @@ urlpatterns = [
     path('cotton/', views.cotton, name='cotton'),
     path('cotton/<slug:data>', views.cotton, name='cottondata'),
 
+    path('checkout/', views.checkout, name='checkout'),
+    path('paymentdone/', views.payment_done, name='paymentdone'),
+
         
     path('accounts/login/', auth_views.LoginView.as_view(template_name='app/login.html',authentication_form=LoginForm),name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='login'),name='logout'),
@@ -43,7 +46,7 @@ urlpatterns = [
 
     path('passwordchangedone/', auth_views.PasswordChangeDoneView.as_view(template_name='app/passwordchangedone.html'),name='passwordchangedone'),
 
-    path('checkout/', views.checkout, name='checkout'),
+    
 
     path('registration/',views.CustomerRegistrationView.as_view(), name="customerregistration")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
